@@ -7,6 +7,7 @@
   "scripts": {
     "dev": "tsx --watch src/index.ts",
     "start": "node dist/index.js",
+    "db:studio": "drizzle-kit studio",
     "build": "tsc",
     "type-check": "tsc --noEmit",
     "lint": "eslint .",
@@ -24,6 +25,7 @@
     "cors": "^2.8.6",
     "custom-env": "^2.0.6",
     "drizzle-orm": "^0.45.1",
+    "drizzle-zod": "^0.8.3",
     "express": "^5.2.1",
     "helmet": "^8.1.0",
     "morgan": "^1.10.1",
@@ -32,12 +34,14 @@
     "zod": "^4.3.6"
   },
   "devDependencies": {
+    "@types/supertest": "^6.0.3",
     "@tsconfig/node22": "^22.0.5",
     "@types/express": "^5.0.6",
     "@types/node": "^25.3.5",
     "@types/pg": "^8.18.0",
     "drizzle-kit": "^0.31.9",
     "prettier": "^3.8.1",
+    "supertest": "^7.1.4",
     "tsx": "^4.21.0",
     "typescript": "^5.9.3"
   }

@@ -3,10 +3,11 @@
     "noEmit": true,
     "target": "esnext",
     "module": "nodenext",
+    "skipLibCheck": true,
     "rewriteRelativeImportExtensions": true,
     "erasableSyntaxOnly": true,
     "verbatimModuleSyntax": true,
-    "allowImportingTsExtensions": true,
+    "allowImportingTsExtensions": true
     // "types": ["vitest/globals"]
   }
 }

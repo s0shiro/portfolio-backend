@@ -21,7 +21,8 @@ const envSchema = z.object({
   PORT: z.coerce.number().positive().default(3000),
   DATABASE_URL: z.string().startsWith('postgresql://'),
   BETTER_AUTH_SECRET: z.string().min(32),
-  BETTER_AUTH_URL: z.string().min(1),
+  BETTER_AUTH_URL: z.string().url(),
+  CORS_ORIGIN: z.string().min(1).default('http://localhost:5173'),
   // Optional social provider credentials
   GITHUB_CLIENT_ID: z.string().optional(),
   GITHUB_CLIENT_SECRET: z.string().optional(),
