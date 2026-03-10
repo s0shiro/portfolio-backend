@@ -18,6 +18,10 @@ const envSchema = z.object({
     .enum(['development', 'test', 'production'])
     .default('development'),
   APP_STAGE: z.enum(['dev', 'test', 'production']).default('dev'),
+  MAILGUN_API_KEY: z.string().optional(),
+  MAILGUN_DOMAIN: z.string().optional(),
+  DO_INFERENCE_KEY: z.string().optional(),
+  DO_INFERENCE_URL: z.string().optional(),
   PORT: z.coerce.number().positive().default(3000),
   DATABASE_URL: z.string().startsWith('postgresql://'),
   BETTER_AUTH_SECRET: z.string().min(32),
