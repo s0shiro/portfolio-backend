@@ -8,6 +8,13 @@
       "when": 1773064722202,
       "tag": "0000_marvelous_hercules",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1773072174593,
+      "tag": "0001_next_galactus",
+      "breakpoints": true
     }
   ]
 }
