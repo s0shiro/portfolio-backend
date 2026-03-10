@@ -23,6 +23,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@better-auth/api-key": "^1.5.4",
     "@epic-web/remember": "^1.1.0",
     "better-auth": "^1.5.4",
     "cors": "^2.8.6",

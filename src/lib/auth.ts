@@ -1,5 +1,6 @@
 import { betterAuth } from 'better-auth'
 import { admin } from 'better-auth/plugins'
+import { apiKey } from '@better-auth/api-key'
 import { drizzleAdapter } from 'better-auth/adapters/drizzle'
 import db from '../db/connection.ts'
 import * as authSchema from '../db/auth-schema.ts'
@@ -50,6 +51,14 @@ export const auth = betterAuth({
     admin({
       defaultRole: 'editor',
       adminRole: ['admin'], // or adminRoles if applicable, depending on version
+    }),
+    apiKey({
+      enableSessionForAPIKeys: true,
+      rateLimit: {
+        enabled: true,
+        maxRequests: 1000,
+        timeWindow: 60 * 1000, // 1 minute
+      },
     }),
   ],
   emailAndPassword: {

@@ -15,6 +15,20 @@
       "when": 1773072174593,
       "tag": "0001_next_galactus",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1773159874364,
+      "tag": "0002_dry_power_man",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "7",
+      "when": 1773162844799,
+      "tag": "0003_rich_blonde_phantom",
+      "breakpoints": true
     }
   ]
 }
