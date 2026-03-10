@@ -2,7 +2,7 @@ import test from 'node:test'
 import assert from 'node:assert/strict'
 import request from 'supertest'
 import app from './server.ts'
-import { env } from '../env.ts'
+import { env } from './env.ts'
 
 function getPrimaryCorsOrigin(): string {
   const [firstOrigin] = env.CORS_ORIGIN.split(',').map((origin) =>

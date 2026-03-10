@@ -3,7 +3,7 @@ import { admin } from 'better-auth/plugins'
 import { drizzleAdapter } from 'better-auth/adapters/drizzle'
 import db from '../db/connection.ts'
 import * as authSchema from '../db/auth-schema.ts'
-import { env } from '../../env.ts'
+import { env } from '../env.ts'
 
 const authBaseUrl = new URL(env.BETTER_AUTH_URL).origin
 

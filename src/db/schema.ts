@@ -151,3 +151,56 @@ export const messageModerationFilterSchema = z.object({
   search: z.string().trim().optional(),
 })
 
+export const botSessions = pgTable(
+  'bot_sessions',
+  {
+    id: text('id')
+      .primaryKey()
+      .$defaultFn(() => crypto.randomUUID()),
+    createdAt: timestamp('created_at').defaultNow().notNull(),
+    updatedAt: timestamp('updated_at').defaultNow().notNull(),
+  },
+  (table) => [index('bot_sessions_created_at_idx').on(table.createdAt)],
+)
+
+export const botMessages = pgTable(
+  'bot_messages',
+  {
+    id: text('id')
+      .primaryKey()
+      .$defaultFn(() => crypto.randomUUID()),
+    sessionId: text('session_id')
+      .notNull()
+      .references(() => botSessions.id, { onDelete: 'cascade' }),
+    role: text('role', { enum: ['user', 'assistant'] }).notNull(),
+    content: text('content').notNull(),
+    type: text('type', { enum: ['command', 'conversation'] })
+      .default('conversation')
+      .notNull(),
+    createdAt: timestamp('created_at').defaultNow().notNull(),
+  },
+  (table) => [
+    index('bot_messages_session_id_idx').on(table.sessionId),
+    index('bot_messages_created_at_idx').on(table.createdAt),
+  ],
+)
+
+export const insertBotSessionSchema = createInsertSchema(botSessions)
+export const selectBotSessionSchema = createSelectSchema(botSessions)
+
+export const insertBotMessageSchema = createInsertSchema(botMessages)
+export const selectBotMessageSchema = createSelectSchema(botMessages)
+
+export const chatRequestSchema = z.object({
+  message: z.string().min(1).max(500),
+  sessionId: z.string().uuid().optional(), // Optional, if empty, backend will create a new session
+})
+
+export const chatResponseSchema = z.object({
+  success: z.boolean(),
+  data: z.object({
+    sessionId: z.string().uuid(),
+    message: z.string(),
+    type: z.enum(['command', 'conversation']),
+  }),
+})

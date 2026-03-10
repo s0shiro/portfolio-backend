@@ -5,10 +5,11 @@ import morgan from 'morgan'
 import helmet from 'helmet'
 import { toNodeHandler } from 'better-auth/node'
 import { auth } from './lib/auth.ts'
-import { env, isTest } from '../env.ts'
+import { env, isTest } from './env.ts'
 import { adminRouter } from './routes/admin.routes.ts'
 import { portfolioRouter } from './routes/portfolio.routes.ts'
 import { contactRouter } from './routes/contact.routes.ts'
+import { chatRoutes } from './routes/chat.routes.js'
 import { requireAuth } from './lib/auth-middleware.ts'
 import { apiErrorHandler } from './lib/error-middleware.ts'
 
@@ -60,6 +61,7 @@ app.get('/health', (req, res) => {
 app.use('/api/contact', contactRouter)
 app.use('/api/portfolio', portfolioRouter)
 app.use('/api/admin', requireAuth, adminRouter)
+app.use('/api/chat', chatRoutes)
 
 app.use(apiErrorHandler)
 
