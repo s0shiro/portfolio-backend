@@ -5,29 +5,8 @@
     {
       "idx": 0,
       "version": "7",
-      "when": 1773064722202,
-      "tag": "0000_marvelous_hercules",
-      "breakpoints": true
-    },
-    {
-      "idx": 1,
-      "version": "7",
-      "when": 1773072174593,
-      "tag": "0001_next_galactus",
-      "breakpoints": true
-    },
-    {
-      "idx": 2,
-      "version": "7",
-      "when": 1773159874364,
-      "tag": "0002_dry_power_man",
-      "breakpoints": true
-    },
-    {
-      "idx": 3,
-      "version": "7",
-      "when": 1773162844799,
-      "tag": "0003_rich_blonde_phantom",
+      "when": 1773163754989,
+      "tag": "0000_lame_puppet_master",
       "breakpoints": true
     }
   ]
